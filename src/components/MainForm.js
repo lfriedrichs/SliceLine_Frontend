@@ -5,8 +5,8 @@ import ToppingForm from './ToppingForm'
 import GourmetToppingForm from './GourmetToppingForm'
 
 const DEFAULT_STATE = {
-  sauce: null,
-  cheese: null,
+  sauce: '',
+  cheese: '',
   toppings: [],
   gourmet_toppings: []
 }
@@ -17,18 +17,24 @@ class MainForm extends Component {
   }
 
   fillForm = (element, type) => {
+    let status;
+    if (Array.isArray(this.state[type])) {
+      status = this.state[type].includes(element)
+    } else {
+      status = this.state[type] === element
+    }
     return (<div className="field">
         <div className="ui checkbox">
             <input
               id={element}
               type="checkbox"
-              value={element.titleize}
+              value={element}
               name={type}
-              checked={ this.props[type].includes(element.titleize) }
-              onChange={(e) => this.props.handleOnChange(e)}
+              checked={status}
+              onChange={(e) => this.handleChange(e)}
             />
-            <img src={ require(`../images/${type}/${element}.png`) }height="100px" width="100px" alt={element} />
-            <label htmlFor={element}>{element.titleize}</label>
+            <img src={ require(`../images/cheese/cheese.png`) }height="100px" width="100px" alt={element} />
+            <label htmlFor={element}>{element}</label>
         </div>
     </div>)
     }
@@ -45,10 +51,10 @@ class MainForm extends Component {
   }
 
   handleChange = (event) => {
-  
+    event.persist()
     const itemType = event.target.name;
     const item = event.target.value;
-    let value = this.state[itemType];
+    let value = this.state[`${itemType}`];
 
     (Array.isArray(value) ? (
         value.push(item)
@@ -58,9 +64,8 @@ class MainForm extends Component {
     )
 
     this.setState({
-        [itemType]: value
+        [`${itemType}`]: value
     })
-
   }
 
   render() {
@@ -70,25 +75,21 @@ class MainForm extends Component {
         <form className="ui form" id="order-form" onSubmit={ this.handleSubmit }>
           <SauceForm
             sauce={ this.state.sauce }
-            handleOnChange={ this.handleChange }
             fillForm = { this.fillForm }
           />
 
           <CheeseForm
             cheese={ this.state.cheese }
-            handleOnChange={ this.handleChange }
             fillForm = { this.fillForm }
           />
 
           <ToppingForm
             toppings={ this.state.toppings }
-            handleOnChange={ this.handleChange }
             fillForm = { this.fillForm }
           />
 
           <GourmetToppingForm
             gourmet_toppings={ this.state.gourmet_toppings }
-            handleOnChange={ this.handleChange }
             fillForm = { this.fillForm }
           />
 
