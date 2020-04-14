@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import NavBar from './containers/NavBar';
-import PizzaSlap from './containers/PizzaSlap';
+import NewOrder from './containers/NewOrder';
 import Login from './containers/Login';
 import {
   BrowserRouter as Router,
@@ -18,6 +18,7 @@ export default class App extends Component {
       user
     })
   }
+
   render() {
 
     return (
@@ -29,7 +30,7 @@ export default class App extends Component {
             <div>
 
               <NavBar />
-              <Route exact path="/makePizza" component={PizzaSlap} />
+              <Route exact path="/makePizza" component={NewOrder} />
 
             </div>
           </Router>
