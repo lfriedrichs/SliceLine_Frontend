@@ -22,19 +22,18 @@ class App extends Component {
 
     return (
       <div>
-        {!this.state.user ? <Login onLogin={this.loginMethod} user={this.state.user}/> :
+        {!this.state.user ? (
+          <Login onLogin={this.loginMethod} user={this.state.user}/> 
+        ) : (
           <Router>
             <div>
+
               <NavBar />
-
-
-              <Route exact path="/pizza" container={PizzaSlap} />
-
+              <Route exact path="/makePizza" container={PizzaSlap} />
 
             </div>
-
-
-          </Router>}
+          </Router>
+        )}
       </div>
     )
   }

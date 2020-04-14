@@ -1,14 +1,11 @@
 import React, { Component } from 'react'
 class Login extends Component {
-  
-  
- 
+
   handleClick = (event) => {
-    event.preventDefault()
-    {
-      this.props.onLogin(event.target.username.value)
-    }
+    event.preventDefault();
+    this.props.onLogin(event.target.username.value);
   }
+
   render() {
     return (
       <form onSubmit={this.handleClick}>
@@ -18,7 +15,7 @@ class Login extends Component {
             <input id="username" name="username" type="text" />
           </label>
         </div>
-        
+
         <div>
           <button type="submit">Log in</button>
         </div>
@@ -26,6 +23,7 @@ class Login extends Component {
     );
   }
 }
+
 export default Login;
 
 
