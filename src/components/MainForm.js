@@ -13,7 +13,37 @@ const DEFAULT_STATE = {
 
 class MainForm extends Component {
   state = {
+    id: this.props.id,
     ...DEFAULT_STATE
+  }
+
+  handleChange = (event) => {
+    event.persist()
+    const itemType = event.target.name;
+    const item = event.target.value;
+    let value = this.state[`${itemType}`];
+
+    (Array.isArray(value) ? (
+        value.push(item)
+        ) : (
+        value = item
+        )
+    )
+
+    this.setState({
+        [`${itemType}`]: value
+    })
+  }
+
+  handleSubmit = (event) => {
+  
+    event.preventDefault()
+    document.getElementById("order-form").reset()
+    this.props.addToOrder(this.state)
+
+    this.setState({
+      ...DEFAULT_STATE
+    })
   }
 
   fillForm = (element, type) => {
@@ -38,35 +68,6 @@ class MainForm extends Component {
         </div>
     </div>)
     }
-
-  handleSubmit = (event) => {
-  
-    event.preventDefault()
-    document.getElementById("order-form").reset()
-    this.props.addOrder(this.state)
-
-    this.setState({
-      ...DEFAULT_STATE
-    })
-  }
-
-  handleChange = (event) => {
-    event.persist()
-    const itemType = event.target.name;
-    const item = event.target.value;
-    let value = this.state[`${itemType}`];
-
-    (Array.isArray(value) ? (
-        value.push(item)
-        ) : (
-        value = item
-        )
-    )
-
-    this.setState({
-        [`${itemType}`]: value
-    })
-  }
 
   render() {
     return(
@@ -95,7 +96,7 @@ class MainForm extends Component {
 
           <br />
 
-          <button className="ui blue big button" type="submit">Submit</button>
+          <button className="ui blue big button" type="submit">Add Pizza</button>
         </form>
       </div>
     )
