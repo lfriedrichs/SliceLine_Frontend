@@ -8,7 +8,7 @@ import {
 } from 'react-router-dom';
 import './App.css';
 
-class App extends Component {
+export default class App extends Component {
   state = {
     user: null,
     orders: []
@@ -22,21 +22,19 @@ class App extends Component {
 
     return (
       <div>
-        {!this.state.user ? (
+        {!this.state.user ? 
           <Login onLogin={this.loginMethod} user={this.state.user}/> 
-        ) : (
+        :
           <Router>
             <div>
 
               <NavBar />
-              <Route exact path="/makePizza" container={PizzaSlap} />
+              <Route exact path="/makePizza" component={PizzaSlap} />
 
             </div>
           </Router>
-        )}
+        }
       </div>
     )
   }
 };
-
-export default App;

@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 
-const toppingsArray = ['artichoke hearts', 'avocado', 'broccoli', 'capers', 'green peppers', 'mushrooms', 'onions', 'olives', 'roasted garlic', 'spinach', 'sun dried tomatoes', 'zucchini', 'bacon, bbq chicken, ham, meatballs, pepperoni, proscuitto, salami, sausage']
+const toppingsArray = ['artichoke hearts', 'avocado', 'broccoli', 'capers', 'green peppers', 'mushrooms', 'onions', 'olives', 'roasted garlic', 'spinach', 'sun dried tomatoes', 'zucchini', 'bacon', 'bbq chicken', 'ham', 'meatballs', 'pepperoni', 'proscuitto', 'salami', 'sausage']
 
 const ToppingForm = (props) => {
   return (
@@ -10,7 +10,7 @@ const ToppingForm = (props) => {
       <div className="inline fields ui centered grid">
 
         {toppingsArray.map(topping => {
-          return props.fillForm(topping, 'topping')
+          return props.fillForm(topping, 'toppings')
         })}
        
       </div>
