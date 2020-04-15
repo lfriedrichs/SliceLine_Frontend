@@ -63,7 +63,7 @@ class MainForm extends Component {
               checked={status}
               onChange={(e) => this.handleChange(e)}
             />
-            <img src={ require(`../images/cheese/cheese.png`) }height="100px" width="100px" alt={element} />
+            <img src={ require(`../images/${type}/${element}.png`) }height="100px" width="100px" alt={element} />
             <label htmlFor={element}>{element}</label>
         </div>
     </div>)
