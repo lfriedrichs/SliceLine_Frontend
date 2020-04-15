@@ -9,12 +9,13 @@ export default class NewOrder extends Component {
         pizzas: []
       }
 
-    addToOrder = (hash) => {
+    addToOrder = (hash, id) => {
         const array = this.state.pizzas
-        array.push(hash)
-        this.setState((state) => {
-          return {id_count: state.id_count + 1, pizzas: array}
-        });
+        const pizza = hash
+        pizza.id = id
+        array.push(pizza)
+        this.setState( {id_count: id + 1, pizzas: array}
+        );
     } 
 
     removePizza = (id) => {
