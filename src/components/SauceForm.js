@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 
-const sauceArray = ['tomato', 'white', 'bbq', 'garlic olive oil', 'french white', 'lemon hill', 'satay']]
+const sauceArray = ['tomato', 'white', 'bbq', 'garlic olive oil', 'french white', 'lemon hill', 'satay']
 
 const SauceForm = (props) => {
   return (

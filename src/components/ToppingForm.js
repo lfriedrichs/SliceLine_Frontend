@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 
-const toppingsArray = ['kidney beans', 'asparagus', 'celery', 'garlic', 'red pepper', 'capers', 'cherkin', 'broccoli', 'lime', 'green peppers', 'mushrooms', 'onions', 'olives', 'spinach', 'pineapples', 'bacon', 'ham', 'pepperoni', 'salami', 'sausage', 'lamb', 'chicken', 'beef', 'pork']
+const toppingsArray = ['kidney beans', 'asparagus', 'celery', 'garlic', 'red pepper', 'capers', 'cherkin', 'broccoli', 'lime', 'green peppers', 'mushrooms', 'onions', 'olives', 'spinach', 'pineapples', 'bacon', 'ham', 'pepperoni', 'salami', 'lamb', 'chicken', 'beef', 'pork']
 
 const ToppingForm = (props) => {
   return (
