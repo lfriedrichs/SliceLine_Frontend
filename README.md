@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,3 +10,6 @@
 </body>
 
 </html>
+=======
+lol
+>>>>>>> 50c223a0dd7f8982a3251b21cc23c355303796a7
