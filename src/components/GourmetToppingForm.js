@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 
-const gourmetToppingsArray = ['basil', 'jalapeno peppers', 'oregano', 'anchovies', 'shrimps', 'squid']
+const gourmetToppingsArray = ['basil', 'jalapeno peppers', 'chives', 'sundried tomatoes', 'pepper', 'parsley', 'anchovies', 'shrimp', 'salmon']
 
 const GourmetToppingForm = (props) => {
   return (
