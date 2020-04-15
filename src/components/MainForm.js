@@ -74,6 +74,11 @@ class MainForm extends Component {
       <div className="ui raised container segment">
         <h1 className="ui block header">Create a Pizza</h1>
         <form className="ui form" id="order-form" onSubmit={ this.handleSubmit }>
+          <SizeForm
+            size={this.state.size}
+            fillForm={this.fillForm}
+          />
+          
           <SauceForm
             sauce={ this.state.sauce }
             fillForm = { this.fillForm }
