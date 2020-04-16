@@ -7,7 +7,7 @@ const SizeForm = (props) => {
     
    
     <Fragment>
-      <h1><label class="text-light" htmlFor="size">Size</label></h1>
+      <h1><label className="text-light" htmlFor="size">Size</label></h1>
       <br></br> <br></br> <br></br> <br></br>
       <p>
       <div className="row">

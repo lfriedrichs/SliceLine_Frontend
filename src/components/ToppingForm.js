@@ -6,7 +6,7 @@ const ToppingForm = (props) => {
   return (
    
     <Fragment>
-      <h1><label class="text-light" htmlFor="topping" align="center">Toppings</label></h1>
+      <h1><label className="text-light" htmlFor="topping" align="center">Toppings</label></h1>
       <br></br> <br></br> <br></br> <br></br>
       <p>
       <div className="row">

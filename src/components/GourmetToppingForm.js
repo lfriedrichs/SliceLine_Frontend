@@ -7,7 +7,7 @@ const GourmetToppingForm = (props) => {
   return (
     
     <Fragment>
-      <h1><label class="text-light" htmlFor="gourmetTopping">Gourmet Toppings</label></h1>
+      <h1><label className="text-light" htmlFor="gourmetTopping">Gourmet Toppings</label></h1>
       <br></br> <br></br> <br></br> <br></br>
       <p>
       <div className="row">

@@ -5,7 +5,6 @@ import ToppingForm from './ToppingForm'
 import GourmetToppingForm from './GourmetToppingForm'
 import SizeForm from './SizeForm'
 import Button from 'react-bootstrap/Button'
-import Form from 'react-bootstrap/Form'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import background from '../images/pixur.png'
 import Badge from 'react-bootstrap/Badge'
@@ -99,20 +98,17 @@ class MainForm extends Component {
   render() {
     return ( 
       <div style={this.sectionStyle}>
-      <div className="ui raised container segment">
+        <div className="ui raised container segment">
       
-        <div className="jumbotron text-center">
-  <h1>Create a Pizza</h1>
-  <p>Resize this responsive page to see the effect!</p> 
-</div>
+          <div className="jumbotron text-center">
+          <h1>Create a Pizza</h1>
+          <p>Resize this responsive page to see the effect!</p> 
+        </div>
 
         <form className="ui form" id="order-form" onSubmit={this.handleSubmit}>
         <Carousel >
-      <Carousel.Item align="center" >
+        <Carousel.Item align="center" >
      
-        
-   
-        
           <SizeForm 
             size={this.state.size}
             fillForm={this.fillForm}
@@ -130,7 +126,7 @@ class MainForm extends Component {
         
           </Carousel.Item>
           <Carousel.Item align="center">
-          <div class="container"> 
+          <div className="container"> 
 
           <CheeseForm
             cheese={this.state.cheese}
@@ -149,7 +145,7 @@ class MainForm extends Component {
          </div>
           </Carousel.Item>
           <Carousel.Item align="center">
-          <div class="container"> 
+          <div className="container"> 
 
           <GourmetToppingForm
             gourmet_toppings={this.state['gourmet_toppings']}
