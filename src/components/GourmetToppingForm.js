@@ -1,20 +1,25 @@
 import React, { Fragment } from 'react'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const gourmetToppingsArray = ['basil', 'jalapeno peppers', 'chives', 'sundried tomatoes', 'pepper', 'parsley', 'anchovies', 'shrimp', 'salmon']
 
 const GourmetToppingForm = (props) => {
   return (
+    
     <Fragment>
-      <h1><label htmlFor="gourmetTopping">Gourmet Toppings</label></h1>
-
-      <div className="inline fields ui centered grid">
-
+      <h1><label class="text-light" htmlFor="gourmetTopping">Gourmet Toppings</label></h1>
+      <br></br> <br></br> <br></br> <br></br>
+      <p>
+      <div className="row">
         {gourmetToppingsArray.map((gourmetTopping, index) => {
           return props.fillForm(gourmetTopping, 'gourmet_toppings', index)
         })}
-       
-      </div>
+        </div>
+        </p>
+       <br></br> <br></br> <br></br> <br></br>
+      
     </Fragment>
+   
   )
 }
 

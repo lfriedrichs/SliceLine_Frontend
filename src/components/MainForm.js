@@ -4,7 +4,13 @@ import CheeseForm from './CheeseForm'
 import ToppingForm from './ToppingForm'
 import GourmetToppingForm from './GourmetToppingForm'
 import SizeForm from './SizeForm'
-
+import Button from 'react-bootstrap/Button'
+import Form from 'react-bootstrap/Form'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import background from '../images/pixur.png'
+import Badge from 'react-bootstrap/Badge'
+import Carousel from 'react-bootstrap/Carousel'
+import '../index.css';
 const DEFAULT_STATE = {
   size: '',
   sauce: '',
@@ -13,12 +19,17 @@ const DEFAULT_STATE = {
   gourmet_toppings: []
 }
 
+
 class MainForm extends Component {
 
   state = {
     ...DEFAULT_STATE
   }
-
+  sectionStyle = {
+    backgroundImage: `url(${background})`,
+    minHeight: '800px',
+    backgroundSize:'cover'
+  };
   handleChange = (event) => {
 
     const itemType = event.target.name;
@@ -44,6 +55,7 @@ class MainForm extends Component {
       [`${itemType}`]: value
     })
   }
+  
 
   handleSubmit = (event) => {
 
@@ -61,8 +73,12 @@ class MainForm extends Component {
   fillForm = (element, type, index) => {
 
     return (
+      
+      
       <div className="field" key={index}>
         <div className="ui checkbox">
+        
+        <div className="col-2 align-self-center">
           <input
             id={element}
             type="checkbox"
@@ -72,50 +88,85 @@ class MainForm extends Component {
               this.state[type] === element}
             onChange={(e) => this.handleChange(e)}
           />
-          <img src={require(`../images/${type}/${element}.png`)} height="100px" width="100px" alt={element} />
-          <label htmlFor={element}>{element}</label>
+          <img src={require(`../images/${type}/${element}.png`)} height="80px" width="80px" alt={element} />
+          <br></br><Badge variant="secondary"><label htmlFor={element}>{element}</label></Badge>
         </div>
       </div>
+     </div>
     )
   }
 
   render() {
-    return (
+    return ( 
+      <div style={this.sectionStyle}>
       <div className="ui raised container segment">
-        <h1 className="ui block header">Create a Pizza</h1>
+      
+        <div className="jumbotron text-center">
+  <h1>Create a Pizza</h1>
+  <p>Resize this responsive page to see the effect!</p> 
+</div>
+
         <form className="ui form" id="order-form" onSubmit={this.handleSubmit}>
-          
-          <SizeForm
+        <Carousel >
+      <Carousel.Item align="center" >
+     
+        
+   
+        
+          <SizeForm 
             size={this.state.size}
             fillForm={this.fillForm}
           />
-
-          <SauceForm
+    
+        
+          </Carousel.Item>
+          <Carousel.Item align="center" >
+          
+          
+          <SauceForm 
             sauce={this.state.sauce}
             fillForm={this.fillForm}
           />
+        
+          </Carousel.Item>
+          <Carousel.Item align="center">
+          <div class="container"> 
 
           <CheeseForm
             cheese={this.state.cheese}
             fillForm={this.fillForm}
           />
+          </div>
+          </Carousel.Item>
+          <Carousel.Item align="center">
+          <div class="container"> 
 
+  
           <ToppingForm
             toppings={this.state.toppings}
             fillForm={this.fillForm}
           />
+         </div>
+          </Carousel.Item>
+          <Carousel.Item align="center">
+          <div class="container"> 
 
           <GourmetToppingForm
             gourmet_toppings={this.state['gourmet_toppings']}
             fillForm={this.fillForm}
           />
-
+           </div>
+          </Carousel.Item>
+          </Carousel>
+          
           <br />
-
-          <button className="ui blue big button" type="submit">Add Pizza</button>
+       
+          <Button variant="dark" type="submit">Add Pizza</Button>
         </form>
-      </div>
+
+      </div></div>
     )
+    
   }
 }
 

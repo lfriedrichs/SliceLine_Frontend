@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import MainForm from '../components/MainForm'
 import Cart from '../components/Cart'
-
+import Button from 'react-bootstrap/Button'
 export default class NewOrder extends Component {
 
   state = {
@@ -60,7 +60,8 @@ export default class NewOrder extends Component {
         <div>
           <MainForm addToOrder={this.addToOrder} id={this.state.id_count}/>
           <Cart pizzas={this.state.pizzas} removePizza={this.removePizza}/>
-          <button onClick={this.placeOrder}>Place Order</button>
+          <Button variant="dark" onClick={this.placeOrder}>Place Order</Button>
+         
           </div>
     )
   }

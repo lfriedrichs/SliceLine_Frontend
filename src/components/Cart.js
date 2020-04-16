@@ -8,7 +8,7 @@ const Cart = (props) => {
   
     return(
         <div className="cart">
-        <h1 className="cart header">Pizzas in Order</h1>
+       <div class="text-light"> <h1 className="cart header">Pizzas in Order</h1> </div>
           <div className="pizzas">
             { pizzas }
           </div>
