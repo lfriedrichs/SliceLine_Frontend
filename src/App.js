@@ -32,7 +32,7 @@ export default class App extends Component {
 
   confirmOrder = (result) => {
     this.setState({ result: result })
-    window.history.pushState({}, `/${this.state.user.id}/orderconfirmation`, `/${this.state.user.id}/orderconfirmation`)
+    window.history.pushState({}, `/${this.state.user.name}/orderconfirmation`, `/${this.state.user.name}/orderconfirmation`)
   }
 
   clearResult = () => {
@@ -78,8 +78,8 @@ export default class App extends Component {
             {/* welcome user  */}
           </Router>) : (
             <Router><div style={this.sectionStyle}>
-              <NavBar clearResult={this.clearResult} user={this.state.user.id}/>
-              <OrderConfirmation user_id={this.state.user.id} result={this.state.result} />
+              <NavBar clearResult={this.clearResult} user_name={this.state.user.name}/>
+              <OrderConfirmation user_name={this.state.user.name} result={this.state.result} />
             </div></Router>
           ))}
         <div className="backy"> </div>
