@@ -16,7 +16,6 @@ export default class App extends Component {
 
   state = {
     user: null,
-    orders: [],
     result: null
   }
   sectionStyle = {
@@ -31,11 +30,16 @@ export default class App extends Component {
   }
 
   confirmOrder = (result) => {
-    const orders = this.state.orders;
+    const orders = this.state.user.orders;
     orders.push(result);
-    this.setState({
-      orders: orders,
-      result: result
+    this.setState( prevState => {
+      return {
+        user: {
+          ...prevState.user,
+          orders: orders
+        },
+        result: result
+      }
     })
     window.history.pushState({}, `/${this.state.user.name}/orderconfirmation`, `/${this.state.user.name}/orderconfirmation`)
   }
