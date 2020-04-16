@@ -31,7 +31,12 @@ export default class App extends Component {
   }
 
   confirmOrder = (result) => {
-    this.setState({ result: result })
+    const orders = this.state.orders;
+    orders.push(result);
+    this.setState({
+      orders: orders,
+      result: result
+    })
     window.history.pushState({}, `/${this.state.user.name}/orderconfirmation`, `/${this.state.user.name}/orderconfirmation`)
   }
 
@@ -71,7 +76,7 @@ export default class App extends Component {
               } />
 
               <Route exact path={`/${this.state.user.name}/orders`} render={(props) =>
-                <Orders user_name={this.state.user.name} orders={this.state.orders}/>
+                <Orders user_name={this.state.user.name} orders={this.state.user.orders}/>
               } />
 
             </div>

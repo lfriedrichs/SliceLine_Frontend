@@ -3,8 +3,7 @@ import Pizza from './Pizza'
 
 const Order = (props) => {
 
-  const pizzas = props.pizzas.map((pizza, index) => <Pizza pizza={pizza} key={index} />)
-
+  const pizzas = props.order.pizzas.map((pizza, index) => <Pizza pizza={pizza} key={index} />)
 
   return (
     <div className="order">
