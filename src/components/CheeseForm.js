@@ -7,7 +7,6 @@ const CheeseForm = (props) => {
   return (
 
     <Fragment>
-
       <h1><label className="text-light" htmlFor="cheese" align="center">Cheese</label></h1>
       <br></br> <br></br> <br></br> <br></br>
 
