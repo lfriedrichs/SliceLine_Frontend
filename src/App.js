@@ -11,7 +11,6 @@ import {
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import background from './images/pixur.png'
-import { Redirect } from 'react-router-dom'
 
 export default class App extends Component {
 

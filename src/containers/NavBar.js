@@ -11,8 +11,6 @@ const NavBar = (props) => {
         <NavLink className="donty" to={`/${props.user_name}/orders`} onClick={props.clearResult}>Order History</NavLink>
       </Badge>
 
-
-
     </div>
 
   );
