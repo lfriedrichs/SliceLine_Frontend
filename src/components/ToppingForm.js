@@ -4,21 +4,21 @@ const toppingsArray = ['kidney beans', 'asparagus', 'celery', 'garlic', 'red pep
 
 const ToppingForm = (props) => {
   return (
-   
+
     <Fragment>
-      <h1><label class="text-light" htmlFor="topping" align="center">Toppings</label></h1>
+      <h1><label className="text-light" htmlFor="topping" align="center">Toppings</label></h1>
       <br></br> <br></br> <br></br> <br></br>
-      <p>
-      <div className="row">
-        {toppingsArray.map((topping, index) => {
-          return props.fillForm(topping, 'toppings', index)
-        })}
+      {/* <p> */}
+        <div className="row">
+          {toppingsArray.map((topping, index) => {
+            return props.fillForm(topping, 'toppings', index)
+          })}
         </div>
-        </p>
-       <br></br> <br></br> <br></br> <br></br>
-    
+      {/* </p> */}
+      <br></br> <br></br> <br></br> <br></br>
+
     </Fragment>
-    
+
   )
 }
 
