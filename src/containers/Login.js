@@ -1,16 +1,18 @@
 import React, { Component } from 'react'
+import '../index.css';
 class Login extends Component {
 
   handleClick = (event) => {
     event.preventDefault();
-    this.props.onLogin(event.target.username.value);
+    const username = event.target.username.value;
+    this.props.onLogin(username);
   }
 
   render() {
     return (
       <form onSubmit={this.handleClick}>
         <div>
-          <label>
+          <label class="text-light">
             Username
             <input id="username" name="username" type="text" />
           </label>

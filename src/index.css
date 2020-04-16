@@ -6,8 +6,20 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
+.lope{ background-image: url("./images/unnamed.png");
+  
+}
+.text-light {font-size: 100px;}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+p {
+  margin-right: 130px;
+  margin-left: 130px;
+  
+
+}
+
+.donty {font-size: 70px;}
