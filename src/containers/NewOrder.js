@@ -67,12 +67,3 @@ export default class NewOrder extends Component {
     )
   }
 }
-
-
-
-
-
-
-
-
-

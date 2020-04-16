@@ -25,11 +25,13 @@ class MainForm extends Component {
   state = {
     ...DEFAULT_STATE
   }
+
   sectionStyle = {
     backgroundImage: `url(${background})`,
     minHeight: '800px',
     backgroundSize: 'cover'
   };
+  
   handleChange = (event) => {
 
     const itemType = event.target.name;
