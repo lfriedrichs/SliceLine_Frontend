@@ -4,21 +4,21 @@ const sizeArray = ['small', 'medium', 'large']
 
 const SizeForm = (props) => {
   return (
-    
-   
+
+
     <Fragment>
       <h1><label className="text-light" htmlFor="size">Size</label></h1>
       <br></br> <br></br> <br></br> <br></br>
-      <p>
+      {/* <p> */}
       <div className="row">
         {sizeArray.map((size, index) => {
           return props.fillForm(size, 'size', index)
         })}
-       </div>
-       </p>
-       <br></br> <br></br> <br></br> <br></br>
+      </div>
+      {/* </p> */}
+      <br></br> <br></br> <br></br> <br></br>
     </Fragment>
-    
+
   )
 }
 
