@@ -5,21 +5,21 @@ const gourmetToppingsArray = ['basil', 'jalapeno peppers', 'chives', 'sundried t
 
 const GourmetToppingForm = (props) => {
   return (
-    
+
     <Fragment>
-      <h1><label class="text-light" htmlFor="gourmetTopping">Gourmet Toppings</label></h1>
+      <h1><label className="text-light" htmlFor="gourmetTopping">Gourmet Toppings</label></h1>
       <br></br> <br></br> <br></br> <br></br>
-      <p>
+      {/* <p> */}
       <div className="row">
         {gourmetToppingsArray.map((gourmetTopping, index) => {
           return props.fillForm(gourmetTopping, 'gourmet_toppings', index)
         })}
-        </div>
-        </p>
-       <br></br> <br></br> <br></br> <br></br>
-      
+      </div>
+      {/* </p> */}
+      <br></br> <br></br> <br></br> <br></br>
+
     </Fragment>
-   
+
   )
 }
 

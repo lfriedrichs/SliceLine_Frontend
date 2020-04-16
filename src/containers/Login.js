@@ -12,7 +12,7 @@ class Login extends Component {
     return (
       <form onSubmit={this.handleClick}>
         <div>
-          <label class="text-light">
+          <label className="text-light">
             Username
             <input id="username" name="username" type="text" />
           </label>
