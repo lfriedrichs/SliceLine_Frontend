@@ -5,20 +5,20 @@ import Button from 'react-bootstrap/Button'
 export default class NewOrder extends Component {
 
   state = {
-      id_count: 0,
-      pizzas: []
+    id_count: 0,
+    pizzas: []
   }
 
   addToOrder = (hash, id) => {
-      const array = this.state.pizzas
-      const pizza = hash
-      pizza.id = id
-      array.push(pizza)
-      this.setState({
-        id_count: id + 1,
-        pizzas: array
-      });
-  } 
+    const array = this.state.pizzas
+    const pizza = hash
+    pizza.id = id
+    array.push(pizza)
+    this.setState({
+      id_count: id + 1,
+      pizzas: array
+    });
+  }
 
   removePizza = (id) => {
     const pizzas = this.state.pizzas.filter(pizza => pizza.id !== id)
@@ -34,16 +34,17 @@ export default class NewOrder extends Component {
         'Content-Type': 'application/json',
         Accept: 'application/json'
       },
-      body: JSON.stringify({order: {
-        pizzas: this.state.pizzas,
-        user_id: this.props.user_id
-      }})
+      body: JSON.stringify({
+        order: {
+          pizzas: this.state.pizzas,
+          user_id: this.props.user_id
+        }
+      })
     })
-      .then( res => res.json() )
+      .then(res => res.json())
       .then(
         (result) => {
-          console.log(result)
-          // this.props.confirmOrder(result);
+          this.props.confirmOrder(result);
           this.setState({
             id_count: 0,
             pizzas: []
@@ -57,12 +58,12 @@ export default class NewOrder extends Component {
 
   render() {
     return (
-        <div>
-          <MainForm addToOrder={this.addToOrder} id={this.state.id_count}/>
-          <Cart pizzas={this.state.pizzas} removePizza={this.removePizza}/>
-          <Button variant="dark" onClick={this.placeOrder}>Place Order</Button>
-         
-          </div>
+      <div>
+        <MainForm addToOrder={this.addToOrder} id={this.state.id_count} />
+        <Cart pizzas={this.state.pizzas} removePizza={this.removePizza} />
+        <Button variant="dark" onClick={this.placeOrder}>Place Order</Button>
+
+      </div>
     )
   }
 }

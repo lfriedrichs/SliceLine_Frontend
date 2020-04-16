@@ -2,16 +2,14 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import Badge from 'react-bootstrap/Badge'
 import '../index.css';
-const NavBar = () => {
+const NavBar = (props) => {
   return (
 
     <div className="navbar">
-<Badge  className="lope">
-      <NavLink className="donty" to="/makePizza">Make Pizza</NavLink>     </Badge>
-     
-
-
-      
+      <Badge className="lope">
+        <NavLink className="donty" to={`/${props.user_name}/neworder`} onClick={props.clearResult}>New Order</NavLink>
+        <NavLink className="donty" to={`/${props.user_name}/orders`} onClick={props.clearResult}>Order History</NavLink>
+      </Badge>
 
     </div>
 
