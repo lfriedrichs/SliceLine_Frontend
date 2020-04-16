@@ -1,7 +1,7 @@
 .App {
   text-align: center;
 }
-
+.backy {background-image: url("./images/puz.jpg");}
 .App-logo {
   height: 40vmin;
   pointer-events: none;

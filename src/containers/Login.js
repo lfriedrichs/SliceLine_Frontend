@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import '../index.css';
 class Login extends Component {
 
   handleClick = (event) => {
@@ -11,7 +12,7 @@ class Login extends Component {
     return (
       <form onSubmit={this.handleClick}>
         <div>
-          <label>
+          <label class="text-light">
             Username
             <input id="username" name="username" type="text" />
           </label>
