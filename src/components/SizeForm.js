@@ -9,8 +9,8 @@ const SizeForm = (props) => {
 
       <div className="inline fields ui centered grid">
 
-        {sizeArray.map(size => {
-          return props.fillForm(size, 'size')
+        {sizeArray.map((size, index) => {
+          return props.fillForm(size, 'size', index)
         })}
        
       </div>

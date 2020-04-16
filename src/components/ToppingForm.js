@@ -9,8 +9,8 @@ const ToppingForm = (props) => {
 
       <div className="inline fields ui centered grid">
 
-        {toppingsArray.map(topping => {
-          return props.fillForm(topping, 'toppings')
+        {toppingsArray.map((topping, index) => {
+          return props.fillForm(topping, 'toppings', index)
         })}
        
       </div>

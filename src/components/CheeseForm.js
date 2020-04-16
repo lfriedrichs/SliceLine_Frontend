@@ -9,8 +9,8 @@ const CheeseForm = (props) => {
 
       <div className="inline fields ui centered grid">
 
-        {cheeseArray.map(cheese => {
-          return props.fillForm(cheese, 'cheese')
+        {cheeseArray.map((cheese, index) => {
+          return props.fillForm(cheese, 'cheese', index)
         })}
        
       </div>
