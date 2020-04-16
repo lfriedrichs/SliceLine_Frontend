@@ -9,13 +9,13 @@ const GourmetToppingForm = (props) => {
     <Fragment>
       <h1><label className="text-light" htmlFor="gourmetTopping">Gourmet Toppings</label></h1>
       <br></br> <br></br> <br></br> <br></br>
-      <p>
       <div className="row">
+      <p>
         {gourmetToppingsArray.map((gourmetTopping, index) => {
           return props.fillForm(gourmetTopping, 'gourmet_toppings', index)
         })}
+                </p>
         </div>
-        </p>
        <br></br> <br></br> <br></br> <br></br>
       
     </Fragment>
