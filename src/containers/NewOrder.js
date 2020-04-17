@@ -57,8 +57,9 @@ export default class NewOrder extends Component {
   }
 
   render() {
+    document.getElementsByClassName('title-text').innerHTML =  'Place A New Order';
     return (
-      <div>
+      <div className='newOrder'>
         <MainForm addToOrder={this.addToOrder} id={this.state.id_count} />
         <Cart pizzas={this.state.pizzas} removePizza={this.removePizza} />
         <Button variant="dark" onClick={this.placeOrder}>Place Order</Button>

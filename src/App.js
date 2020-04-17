@@ -12,6 +12,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import background from './images/pixur.png'
 
+
 export default class App extends Component {
 
   state = {
@@ -58,6 +59,8 @@ export default class App extends Component {
         this.setState({
           user: data
         })
+        window.history.pushState({}, `/${this.state.user.name}`, `/${this.state.user.name}`)
+
       });
   }
 
@@ -74,6 +77,7 @@ export default class App extends Component {
               <div style={this.sectionStyle}>
                 <NavBar clearResult={this.clearResult} user_name={this.state.user.name}/>
               </div>
+              <div className='title'><h1 className='title-text'>Hello {this.state.user.name}!</h1></div>
 
               <Route exact path={`/${this.state.user.name}/neworder`} render={(props) =>
                 <NewOrder user_id={this.state.user.id} confirmOrder={this.confirmOrder} />
@@ -82,6 +86,7 @@ export default class App extends Component {
               <Route exact path={`/${this.state.user.name}/orders`} render={(props) =>
                 <Orders user_name={this.state.user.name} orders={this.state.user.orders}/>
               } />
+
 
             </div>
             {/* welcome user  */}

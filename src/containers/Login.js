@@ -9,7 +9,7 @@ class Login extends Component {
   }
 
   render() {
-    return (
+    return (<div className='login'><h1 className='welcome'>Welcome to Sliceline!</h1>
       <form onSubmit={this.handleClick}>
         <div>
           <label className="text-light">
@@ -22,6 +22,7 @@ class Login extends Component {
           <button type="submit">Log in</button>
         </div>
       </form>
+      </div>
     );
   }
 }
