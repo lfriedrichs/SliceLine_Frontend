@@ -19,8 +19,10 @@ const Order = (props) => {
       <div className="pizzas">
         {pizzas}
       </div>
+      <div className='text-white'>
       <button onClick={handleEditButton}> Edit </button>
       <button onClick={handleDeleteButton}> Delete </button>
+      </div>
       
     </div>
   )

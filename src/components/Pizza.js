@@ -7,17 +7,10 @@ const Pizza = (props) => {
         props.removePizza(props.pizza.id)
     }) : (''))
 
-    const onEditPizza = (props.onEditPizza ? (
-        () => {
-            props.onEditPizza(props.pizza)
-        }) : (''))
-
-    // return (
-    //     <div>
-
-    //         }
-    //     </div>
-    // )
+    // const onEditPizza = (props.onEditPizza ? (
+    //     () => {
+    //         props.onEditPizza(props.pizza)
+    //     }) : (''))
 
     return (
         <div>
@@ -42,11 +35,13 @@ const Pizza = (props) => {
                 {//(props.onEditPizza ? (<button onClick={onEditPizza}>Edit</button>) : (''))}
                 }
             </div>
+            <div className="text-white">
             {props.pizza.sizes} pizza with {props.pizza.sauces} sauce,
             {
                 ' ' + props.pizza.cheeses} cheese
             {(props.pizza.toppings[0] ? (' and ' + props.pizza.toppings.join(', ')) : (''))}
             {(props.pizza.gourmet_toppings[0] ? (' and ' + props.pizza.gourmet_toppings.join(', ')) : (''))}
+            </div>
     </div>
     )
 }

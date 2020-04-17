@@ -13,7 +13,6 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import background from './images/pixur.png'
 
-
 export default class App extends Component {
 
   state = {
@@ -24,11 +23,17 @@ export default class App extends Component {
 
   sectionStyle = {
     backgroundImage: `url(${background})`,
-    minHeight: '60px',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+    backgroundAttachment: 'fixed',
+    minHeight: '60px'
   }
 
   sectionStyl = {
     backgroundImage: `url(${background})`,
+    backgroundPosition: 'center',
+    // backgroundRepeat: 'no-repeat',
+    // backgroundAttachment: 'fixed',
     minHeight: '1500px',
     overflow: 'scroll'
   }

@@ -91,7 +91,9 @@ export default class NewOrder extends Component {
 
         <Cart pizzas={this.state.pizzas} removePizza={this.removePizza} onEditPizza={this.editpizza}/>
 
-        <Button disabled={!isEnabled} variant="dark" onClick={this.placeOrder}>Place Order</Button>
+        <div className='text-white'>
+          <Button disabled={!isEnabled} variant="dark" onClick={this.placeOrder}>Place Order</Button>
+        </div>
 
       </div>
     )

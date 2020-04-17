@@ -50,21 +50,21 @@ class MainForm extends Component {
         </div>
       )
     } else if (this.state.sizes === "") {
-      return (<div className="App-link">Please choose atleast one from each section</div>)
+      return ((<div className="size" id="pot1"></div>))
     }
     else if (this.state.sauces === "") {
-      return (<div className="App-link">Please choose atleast one from each section</div>)
+      return ((<div className="size" id="pot1"></div>))
     }
     else if (this.state.cheeses === "") {
-      return (<div className="App-link">Please choose atleast one from each section</div>)
+      return ((<div className="size" id="pot1"></div>))
     }
     else if (this.state.toppings === []) {
-      return (<div className="App-link">Please choose atleast one from each section</div>)
+      return ((<div className="size" id="pot1"></div>))
     }
     else if (this.state.gourmet_toppings === []) {
-      return (<div className="App-link">Please choose atleast one from each section</div>)
+      return ((<div className="size" id="pot1"></div>))
     }
-    else { return (<div className="App-link">Please choose</div>) }
+    else { return (<div className="size" id="pot1"></div>) }
   }
 
   handleChange = (event) => {
@@ -220,10 +220,13 @@ class MainForm extends Component {
 
             <br />
 
-            <Button disabled={!isEnabled} variant="dark" type="submit" >Add Pizza </Button>
+            <div className='text-white'>
+              <Button disabled={!isEnabled} variant="dark" type="submit" >Add Pizza </Button>
+            </div>
           </form>
 
-        </div></div>
+        </div>
+      </div>
     )
 
   }

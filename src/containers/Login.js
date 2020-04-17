@@ -31,12 +31,12 @@ class Login extends Component {
       <form onSubmit={this.handleClick}>
         <div>
           <label className="text-light">
-            Username
+          UserName {/* <p id="spinner-login">Username</p> */}
             <input id="username" name="username" type="text" value={this.state.name} onChange={this.handleChange}/>
           </label>
         </div>
 
-        <div>
+        <div className='text-light'>
           <button disabled={!isEnabled} type="submit">Log in</button>
         </div>
       </form>

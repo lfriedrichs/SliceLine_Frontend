@@ -6,8 +6,11 @@ const NavBar = (props) => {
   return (
 
     <div className="navbar">
+      
       <Badge className="lope">
         <NavLink className="donty" to={`/${props.user_name}/neworder`} onClick={props.onClick}>New Order</NavLink>
+      </Badge>
+      <Badge className="lope">
         <NavLink className="donty" to={`/${props.user_name}/orders`} onClick={props.onClick}>Order History</NavLink>
       </Badge>
 
