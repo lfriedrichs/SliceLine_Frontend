@@ -11,19 +11,12 @@ import background from '../images/pixur.png'
 import Badge from 'react-bootstrap/Badge'
 import Carousel from 'react-bootstrap/Carousel'
 import '../index.css';
-const DEFAULT_STATE = {
-  size: '',
-  sauce: '',
-  cheese: '',
-  toppings: [],
-  gourmet_toppings: []
-}
-
+import '../App.css';
 
 class MainForm extends Component {
 
   state = {
-    ...DEFAULT_STATE
+    ...this.props.state,
   }
 
   sectionStyle = {
@@ -31,7 +24,51 @@ class MainForm extends Component {
     minHeight: '800px',
     backgroundSize: 'cover'
   };
-  
+
+  picture = () => {
+    if (this.state.sizes.length
+      && this.state.sauces.length
+      && this.state.cheeses.length > 0
+      && this.state.toppings.length > 0
+      && this.state.gourmet_toppings.length > 0) {
+      return (
+        <div className="row">
+          <div className="size" id="pot">
+            <div className="sauce" id="ingredients">
+              <img id="ingredients" alt="sauce" src={require(`../images/sauces/${this.state.sauces}.png`)} />
+              <div className="cheese" id="ingredients">
+                <img id="ingredients" alt="cheese" src={require(`../images/cheeses/${this.state.cheeses}.png`)} />
+                {this.state.toppings.map((top) =>
+                  <div className="toppings" id="ingredients">
+                    <img id="ingredients" alt="toppings" src={require(`../images/toppings/${top}.png`)} />
+                  </div>)}
+                {this.state.gourmet_toppings.map((top) =>
+                  <div className="gourmetToppings" id="ingredients">
+                    <img id="ingredients" alt="gourmet_toppings" src={require(`../images/gourmet_toppings/${top}.png`)} />
+                  </div>)}
+              </div>
+            </div>
+          </div>
+        </div>
+      )
+    } else if (this.state.sizes === "") {
+      return (<div className="App-link">Please choose atleast one from each section</div>)
+    }
+    else if (this.state.sauces === "") {
+      return (<div className="App-link">Please choose atleast one from each section</div>)
+    }
+    else if (this.state.cheeses === "") {
+      return (<div className="App-link">Please choose atleast one from each section</div>)
+    }
+    else if (this.state.toppings === []) {
+      return (<div className="App-link">Please choose atleast one from each section</div>)
+    }
+    else if (this.state.gourmet_toppings === []) {
+      return (<div className="App-link">Please choose atleast one from each section</div>)
+    }
+    else { return (<div className="App-link">Please choose</div>) }
+  }
+
   handleChange = (event) => {
 
     const itemType = event.target.name;
@@ -49,15 +86,14 @@ class MainForm extends Component {
         value.push(item)
       ) : (
           value = item
-        )
-      )
+        ))
     }
 
     this.setState({
-      [`${itemType}`]: value
+      [`${itemType}`]: value,
     })
-  }
 
+  }
 
   handleSubmit = (event) => {
 
@@ -67,15 +103,30 @@ class MainForm extends Component {
     this.props.addToOrder(this.state, this.props.id)
 
     this.setState({
-      ...DEFAULT_STATE
+      sizes: '',
+      sauces: '',
+      cheeses: '',
+      toppings: [],
+      gourmet_toppings: []
     })
 
+  }
+
+  canBeSubmitted = () => {
+    const pizza = this.state;
+
+    return (
+      pizza['sizes'] !== ''
+      && pizza['sauces'] !== ''
+      && pizza['cheeses'] !== ''
+      && pizza['toppings'].length > 0
+      && pizza['gourmet_toppings'].length > 0
+    );
   }
 
   fillForm = (element, type, index) => {
 
     return (
-
 
       <div className="field" key={index}>
         <div className="ui checkbox">
@@ -86,8 +137,12 @@ class MainForm extends Component {
               type="checkbox"
               value={element}
               name={type}
-              checked={Array.isArray(this.state[type]) ? this.state[type].includes(element) :
-                this.state[type] === element}
+              checked={
+                Array.isArray(this.state[type]) && this.state[type].length > 0 ? (
+                  this.state[type].includes(element)
+                ) : (
+                    this.state[type] === element
+                  )}
               onChange={(e) => this.handleChange(e)}
             />
             <img src={require(`../images/${type}/${element}.png`)} height="80px" width="80px" alt={element} />
@@ -99,34 +154,34 @@ class MainForm extends Component {
   }
 
   render() {
+
+    const isEnabled = this.canBeSubmitted();
+
     return (
       <div style={this.sectionStyle}>
         <div className="ui raised container segment">
 
           <div className="jumbotron text-center">
             <h1>Create a Pizza</h1>
-            <p>Resize this responsive page to see the effect!</p>
           </div>
 
           <form className="ui form" id="order-form" onSubmit={this.handleSubmit}>
             <Carousel >
               <Carousel.Item align="center" >
 
-
-
-
                 <SizeForm
-                  size={this.state.size}
+                  picture={this.picture}
+                  size={this.state.sizes}
                   fillForm={this.fillForm}
                 />
-
 
               </Carousel.Item>
               <Carousel.Item align="center" >
 
 
                 <SauceForm
-                  sauce={this.state.sauce}
+                  picture={this.picture}
+                  sauce={this.state.sauces}
                   fillForm={this.fillForm}
                 />
 
@@ -135,9 +190,11 @@ class MainForm extends Component {
                 <div className="container">
 
                   <CheeseForm
-                    cheese={this.state.cheese}
+                    picture={this.picture}
+                    cheese={this.state.cheeses}
                     fillForm={this.fillForm}
                   />
+
                 </div>
               </Carousel.Item>
               <Carousel.Item align="center">
@@ -145,25 +202,29 @@ class MainForm extends Component {
 
 
                   <ToppingForm
+                    picture={this.picture}
                     toppings={this.state.toppings}
                     fillForm={this.fillForm}
                   />
+
                 </div>
               </Carousel.Item>
               <Carousel.Item align="center">
                 <div className="container">
 
                   <GourmetToppingForm
+                    picture={this.picture}
                     gourmet_toppings={this.state['gourmet_toppings']}
                     fillForm={this.fillForm}
                   />
+
                 </div>
               </Carousel.Item>
             </Carousel>
 
             <br />
 
-            <Button variant="dark" type="submit">Add Pizza</Button>
+            <Button disabled={!isEnabled} variant="dark" type="submit" >Add Pizza </Button>
           </form>
 
         </div></div>
