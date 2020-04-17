@@ -14,19 +14,13 @@ const Pizza = (props) => {
 
     // return (
     //     <div>
-    //         {props.pizza.sizes} pizza with {props.pizza.sauces} sauce,
-    //         {
-    //             ' ' + props.pizza.cheeses} cheese
-    //         {(props.pizza.toppings[0] ? (' and ' + props.pizza.toppings.join(', ')) : (''))}
-    //         {(props.pizza.gourmet_toppings[0] ? (' and ' + props.pizza.gourmet_toppings.join(', ')) : (''))}
-    // { (props.removePizza ? (<button onClick={onRemovePizza}>Remove</button>) : ('')) }
-    // {
-    //     (props.onEditPizza ? (<button onClick={onEditPizza}>Edit</button>) : (''))
-        //         }
-        //     </div>
-        // )
 
-        return (
+    //         }
+    //     </div>
+    // )
+
+    return (
+        <div>
             <div className="row">
                 <div className="size" id="pot">
                     <div className="sauce" id="ingredients">
@@ -45,8 +39,15 @@ const Pizza = (props) => {
                     </div>
                 </div>
                 {(props.removePizza ? (<button onClick={onRemovePizza}>Remove</button>) : (''))}
-                {(props.onEditPizza ? (<button onClick={onEditPizza}>Edit</button>) : (''))}
+                {//(props.onEditPizza ? (<button onClick={onEditPizza}>Edit</button>) : (''))}
+                }
             </div>
-        )
-    }
-    export default Pizza
+            {props.pizza.sizes} pizza with {props.pizza.sauces} sauce,
+            {
+                ' ' + props.pizza.cheeses} cheese
+            {(props.pizza.toppings[0] ? (' and ' + props.pizza.toppings.join(', ')) : (''))}
+            {(props.pizza.gourmet_toppings[0] ? (' and ' + props.pizza.gourmet_toppings.join(', ')) : (''))}
+    </div>
+    )
+}
+export default Pizza
