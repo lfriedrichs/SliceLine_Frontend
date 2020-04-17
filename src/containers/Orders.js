@@ -8,7 +8,7 @@ export default class Orders extends Component {
     const orders = this.props.orders.map((order, index) => <Order order={order} key={index} index={index} onDeleteOrder={this.props.onDeleteOrder} onEditOrder={this.props.onEditOrder}/>)
 
     return (
-      <div>
+      <div className='orderHistory'><h1>{this.props.user_name}'s Orders</h1>
         {orders}
       </div>
     )

@@ -26,11 +26,9 @@ class MainForm extends Component {
   };
 
   picture = () => {
-    if (this.state.sizes.length
-      && this.state.sauces.length
-      && this.state.cheeses.length > 0
-      && this.state.toppings.length > 0
-      && this.state.gourmet_toppings.length > 0) {
+    if (this.state.sizes !== '' && this.state.sizes !== undefined
+      && this.state.sauces !== ''
+      && this.state.cheeses !== '') {
       return (
         <div className="row">
           <div className="size" id="pot">
@@ -119,8 +117,6 @@ class MainForm extends Component {
       pizza['sizes'] !== ''
       && pizza['sauces'] !== ''
       && pizza['cheeses'] !== ''
-      && pizza['toppings'].length > 0
-      && pizza['gourmet_toppings'].length > 0
     );
   }
 

@@ -27,6 +27,7 @@ class Login extends Component {
     const isEnabled = this.canBeSubmitted();
 
     return (
+      <div>
       <form onSubmit={this.handleClick}>
         <div>
           <label className="text-light">
@@ -39,6 +40,7 @@ class Login extends Component {
           <button disabled={!isEnabled} type="submit">Log in</button>
         </div>
       </form>
+      </div>
     );
   }
 }

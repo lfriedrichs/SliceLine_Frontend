@@ -13,6 +13,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import background from './images/pixur.png'
 
+
 export default class App extends Component {
 
   state = {
@@ -81,6 +82,8 @@ export default class App extends Component {
         this.setState({
           user: data
         })
+        window.history.pushState({}, `/${this.state.user.name}`, `/${this.state.user.name}`)
+
       });
   }
 
